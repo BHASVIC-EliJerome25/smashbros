@@ -10,11 +10,10 @@ public class playerone extends Actor
 {
     private int ydisplace = 0;
     private int doublejump = 1;
+    public int directions = 0;
+    private int clock = 50;
     public static final int maxFallSpeed = 12;
-    /**
-     * Act - do whatever the playerone wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
     protected int livesP1 = 5;
     
     public void act()
@@ -22,9 +21,11 @@ public class playerone extends Actor
         setLocation(getX(),getY()+ydisplace);
         if (Greenfoot.isKeyDown("a")){
             move(-4);
+            directions = 1;
         }
         if (Greenfoot.isKeyDown("d")){
             move(4);
+            directions = 0;
         }
         if (getOneIntersectingObject(platform.class) == null){
             if (ydisplace < maxFallSpeed){
@@ -47,11 +48,26 @@ public class playerone extends Actor
             ydisplace = -12;
             doublejump = 0;
         }
+        if (Greenfoot.isKeyDown("z") && clock >= 50)
+        {
+            World world = getWorld();
+            
+            world.addObject(new projectile(), getX(), getY());
+            
+            clock = 0;
+            
+        }
         if (getY() > 390){
             World world = getWorld();
             this.setLocation(241,56);          
             
         }
+        if(livesP1 <= 0)
+        {
+            getWorld().removeObject(this);
+            Greenfoot.stop();
+        }
+        clock ++;
     }
         
 }

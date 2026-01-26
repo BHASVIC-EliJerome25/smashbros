@@ -40,7 +40,7 @@ public class MyWorld extends World
         addObject(platform6,240,150);
         platform platform7 = new platform();
         addObject(platform7,210,150);
-        
+
         platform platform8 = new platform();
         addObject(platform8,120,270);
         platform platform9 = new platform();
@@ -51,7 +51,7 @@ public class MyWorld extends World
         addObject(platform11,210,270);
         platform platform12 = new platform();
         addObject(platform12,240,270);
-        
+
         platform platform13 = new platform();
         addObject(platform13,360,270);
         platform platform14 = new platform();
@@ -62,12 +62,20 @@ public class MyWorld extends World
         addObject(platform16,450,270);
         platform platform17 = new platform();
         addObject(platform17,480,270);
-        
-        
+
         
         playerone playerone = new playerone();
         addObject(playerone,241,56);
         playertwo playertwo = new playertwo();
         addObject(playertwo,369,51);
+        Scoreboard2 scoreboard2 = new Scoreboard2();
+        addObject(scoreboard2,420,400);
+        scoreboard2.setValues(5);
+
+        Scoreboard1 scoreboard1 = new Scoreboard1();
+        addObject(scoreboard1,180,400);
+        scoreboard1.setValues(5);
+        
+ 
     }
 }
