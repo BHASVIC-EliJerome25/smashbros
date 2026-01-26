@@ -47,7 +47,7 @@ public class playertwo extends Actor{
             ydisplace = -12;
             doublejump = 0;
         }
-                if (Greenfoot.isKeyDown("#") && clock >= 50)
+        if (Greenfoot.isKeyDown("#") && clock >= 50)
         {
             World world = getWorld();
             
@@ -57,7 +57,11 @@ public class playertwo extends Actor{
             
         }
         if (getY() > 390){
-            getWorld().removeObject(this);
+            Scoreboard2 scoreboard = getWorld().getObjects(Scoreboard2.class).get(0);
+            this.setLocation(369,56);
+            livesP2--;
+            scoreboard.setValues(livesP2);
+            
         }// Add your action code here.
         if(livesP2 <= 0)
         {

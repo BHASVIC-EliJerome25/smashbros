@@ -58,9 +58,10 @@ public class playerone extends Actor
             
         }
         if (getY() > 390){
-            World world = getWorld();
-            this.setLocation(241,56);          
-            
+            Scoreboard1 scoreboard = getWorld().getObjects(Scoreboard1.class).get(0);
+            this.setLocation(241,56);      
+            livesP1--;
+            scoreboard.setValues(livesP1);
         }
         if(livesP1 <= 0)
         {

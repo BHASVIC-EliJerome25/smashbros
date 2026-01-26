@@ -67,7 +67,7 @@ public class MyWorld extends World
         playerone playerone = new playerone();
         addObject(playerone,241,56);
         playertwo playertwo = new playertwo();
-        addObject(playertwo,369,51);
+        addObject(playertwo,369,56);
         Scoreboard2 scoreboard2 = new Scoreboard2();
         addObject(scoreboard2,420,400);
         scoreboard2.setValues(5);

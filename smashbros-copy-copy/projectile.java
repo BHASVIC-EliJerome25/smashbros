@@ -33,7 +33,7 @@ public class projectile extends attacks
         {
             getWorld().removeObject(this);
         }
-        move(2);
+        move(5);
         checkHit();
     
     }
