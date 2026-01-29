@@ -28,25 +28,30 @@ public class projectile extends attacks
             ball = 1;
         }
         
-        
+        checkHit();
+
         if(getX() <= 1 || getX() >= 599)
         {
             getWorld().removeObject(this);
         }
         move(5);
-        checkHit();
     
     }
     
     public void checkHit()
     {
-        playertwo player = getWorld().getObjects(playertwo.class).get(0);
-        Scoreboard2 scoreboard = getWorld().getObjects(Scoreboard2.class).get(0);
-        if (getOneIntersectingObject(playertwo.class) != null)
+        Actor player = getOneIntersectingObject(playertwo.class);
+        if (player != null)
         {
-            player.livesP2--;
-            getWorld().removeObject(this);
-            scoreboard.setValues(player.livesP2);
+            player.move(4);
+            if (getRotation() == 0)
+            {
+                player.move(4);
+            }
+            else
+            {
+                player.move(-4);
+            }            
         }
     }
     

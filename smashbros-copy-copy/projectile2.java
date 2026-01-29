@@ -28,23 +28,27 @@ public class projectile2 extends attacks
             ball = 1;
         }
         
-        
+        checkHit();
         if(getX() <= 1 || getX() >= 599)
         {
             getWorld().removeObject(this);
         }
         move(5);    
-        checkHit();
+       
     }
     public void checkHit()
     {
-        playerone player = getWorld().getObjects(playerone.class).get(0);
-        Scoreboard1 scoreboard = getWorld().getObjects(Scoreboard1.class).get(0);
-        if (getOneIntersectingObject(playerone.class) != null)
-        {
-            player.livesP1--;
-            getWorld().removeObject(this);
-            scoreboard.setValues(player.livesP1);
+        Actor player = getOneIntersectingObject(playerone.class);
+        if (player != null)
+        {   
+            if (getRotation() == 0)
+            {
+                player.move(4);
+            }
+            else
+            {
+                player.move(-4);
+            }
         }
     }
 }
